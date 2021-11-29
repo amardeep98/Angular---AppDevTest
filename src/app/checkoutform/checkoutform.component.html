@@ -1,0 +1,37 @@
+<div class="container col-sm-6" [hidden]="submitted">
+    <p>Hello {{msg}}</p>
+    <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm.value)">
+        <div class="form-group ">
+            <label for="firstname">First Name</label>
+            <input type="text" class="form-control" ngModel name="firstname" id="firstname" aria-describedby="emailHelp" placeholder="Enter Firstname">
+        </div>
+        <div class="form-group">
+            <label for="lastname">Last Name</label>
+            <input type="text" class="form-control" ngModel name="lastname" id="lastname" aria-describedby="emailHelp" placeholder="Enter Lastname">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" [(ngModel)]="msg" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" ngModel name="password" id="password" placeholder="Enter Password">
+        </div>
+        <br>
+        <div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+
+<div class="jumbotron text-center" [hidden]="!submitted">
+    <h1 class="display-3">Thank You!</h1>
+    <p class="lead"><strong>Please check your email {{contact.email}}</strong> for further instructions on how to complete your payment.</p>
+    <hr>
+    <p>
+      Having trouble? <a href="">Contact us</a>
+    </p>
+    <p class="lead">
+      <a class="btn btn-primary btn-sm" routerLink="/" role="button">Continue to homepage</a>
+    </p>
+  </div>
